@@ -2,9 +2,11 @@
 Charity Funding Predictor - University of Birmingham Assignment 
 
 
-## Data
+## Report
 
-The nonprofit foundation Alphabet Soup wants a tool that can help it select the applicants for funding with the best chance of success in their ventures. Using machine learning and neural networks, I have created a binary classifier that can predict whether applicants will be successful if funded by Alphabet Soup.
+The nonprofit foundation Alphabet Soup wants a tool that can help it select the applicants for funding with the best chance of success in their ventures. Using machine learning and neural networks, I have created a binary classifier that can predict with a 73% of accuracy whether applicants will be successful if funded by Alphabet Soup:
+
+* I have created 7 different models, all with similar results. I have not achieved the goal of 75% accuracy, as all the models have resulted in an accuracy of 73%, with a loss always close to 0.6. 
 
 From Alphabet Soup’s business team, I have received a CSV containing more than 34,000 organizations that have received funding from Alphabet Soup over the years. Within this dataset are a number of columns that capture metadata about each organization, such as:
 
@@ -19,6 +21,19 @@ From Alphabet Soup’s business team, I have received a CSV containing more than
 * **SPECIAL_CONSIDERATIONS**—Special consideration for application
 * **ASK_AMT**—Funding amount requested
 * **IS_SUCCESSFUL**—Was the money used effectively
+
+As a first step, I have eliminated the ID columns because they do not add value and may bias the sample. In addition, I have converted the categorical variables to numerical variables.
+
+I have then trained different models to try to predict the output "IS_SUCCESSFUL", in which I have alternately added neurons, layers and epochs, and I have also tried different activation functions, but in all cases the results have been very similar: an accuracy of 73%, with a loss always close to 0.6.
+
+![Accuracy](Resources/accuracy1.JPG)
+![Loss](Resources/loss1.JPG)
+
+For this reason, I recommend using a simple model, with two layers of 80 and 30 neurons respectively using the ReLu activation function, and a binary output using Sigmoid, in 100 epochs. This will provide an acceptable accuracy at a low computational cost.
+
+
+- - -
+
 
 ## Instructions
 
@@ -79,41 +94,11 @@ Using any or all of the following methods to optimize your model:
 * Use different activation functions for the hidden layers.
 * Add or reduce the number of epochs to the training regimen.
 
-**Note**: If you make at least three attempts at optimizing your model, you will not lose points if your model does not achieve target performance.
-
-1. Create a new Jupyter Notebook file and name it `AlphabetSoupCharity_Optimzation.ipynb`.
-
-2. Import your dependencies and read in the `charity_data.csv` to a Pandas DataFrame.
-
-3. Preprocess the dataset like you did in Step 1, Be sure to adjust for any modifications that came out of optimizing the model.
-
-4. Design a neural network model, and be sure to adjust for modifications that will optimize the model to achieve higher than 75% accuracy.
-
-5. Save and export your results to an HDF5 file. Name the file `AlphabetSoupCharity_Optimization.h5`.
 
 ### Step 4: Write a Report on the Neural Network Model
 
 For this part of the assignment, you’ll write a report on the performance of the deep learning model you created for AlphabetSoup.
 
-The report should contain the following:
-
-1. **Overview** of the analysis: Explain the purpose of this analysis.
-
-2. **Results**: Using bulleted lists and images to support your answers, address the following questions.
-
-  * Data Preprocessing
-    * What variable(s) are the target(s) for your model?
-    * What variable(s) are the features for your model?
-    * What variable(s) should be removed from the input data because they are neither targets nor features?
-  
-* Compiling, Training, and Evaluating the Model
-    * How many neurons, layers, and activation functions did you select for your neural network model, and why?
-    * Were you able to achieve the target model performance?
-    * What steps did you take in your attempts to increase model performance?
-
-3. **Summary**: Summarize the overall results of the deep learning model. Include a recommendation for how a different model could solve this classification problem, and then explain your recommendation.
-
-
-- - - 
+- - -
 
 © 2022 University of Birmingham / Data Analysis Assignment by DianaAF	
